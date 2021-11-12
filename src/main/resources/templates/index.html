@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<!--/* Note the xmlns:* here are completely optional and only meant to     */-->
+<!--/* avoid IDEs from complaining about tags/attributes they may not know */-->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:score="http://thymeleafexamples">
+
+  <head>
+    <title>COVID - 19 xRevio</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  </head>
+
+  <body>
+  <div class="container">
+   <h1>COVID - 19</h1>
+   <p> Esta aplicacion lista el numero de casos que se reportan  </p>
+   
+	<div class="jumbotron">
+  		<h1 class="display-4" th:text="${totalReportedCases}"></h1>
+  			<p class="lead">Total de casos reportados hasta Hoy.</p>
+	</div>
+	
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Estado</th>			
+					<th>Pais</th>
+					<th>Total</th>
+					<th>Cambio Dia Anterior</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="listVeiw:${listState}" >
+					<td th:text="${listVeiw.state}">
+					<td th:text="${listVeiw.country}">
+					<td th:text="${listVeiw.latestTotalReportCases}">
+					<td th:text="${listVeiw.diffFromPrevDay}">
+				</tr>
+			</tbody>
+		</table>
+	</div>
+  </body>
+
+</html>
